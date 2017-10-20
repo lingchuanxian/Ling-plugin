@@ -1,0 +1,11 @@
+package $packageName;
+
+/**
+ * 静态常量
+ * @author $author
+ * @date $date.
+ */
+
+public class Contants {
+	public final static String IP = "https://api.weibo.com/";
+}

@@ -1,0 +1,20 @@
+package $packageName;
+
+import android.content.Context;
+
+import javax.inject.Singleton;
+
+import $package.api.ApiService;
+import $package.di.module.AppModule;
+import dagger.Component;
+
+/**
+ * @author $author
+ * @date $date.
+ */
+@Singleton
+@Component(modules = AppModule.class)
+public interface AppComponent {
+    Context context();  // 提供Applicaiton的Context
+    ApiService apiService();
+}

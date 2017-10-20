@@ -1,0 +1,9 @@
+package $packageName;
+
+/**
+ * 基类的Model
+ * @author $author
+ * @date $date.
+ */
+public interface BaseModel {
+}

@@ -1,0 +1,49 @@
+package $packageName;
+
+import android.app.Application;
+
+import com.squareup.leakcanary.LeakCanary;
+
+import $package.di.component.AppComponent;
+import $package.di.component.DaggerAppComponent;
+import $package.di.module.AppModule;
+import $package.global.ActivityManager;
+
+/**
+ * class description here
+ *
+ * @author $author
+ * @date $date.
+ */
+
+public class WBApplication extends Application {
+	private static WBApplication instance;
+	private ActivityManager activityManager = null; // activity管理类
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		instance = this;
+		if (LeakCanary.isInAnalyzerProcess(this)) {
+			return;
+		}
+		activityManager = ActivityManager.getInstance();
+	}
+
+	public static WBApplication getInstance() {
+		return instance;
+	}
+
+	public ActivityManager getActivityManager() {
+		return activityManager;
+	}
+
+	public AppComponent getAppComponent(){
+		return DaggerAppComponent.builder()
+				.appModule(new AppModule(this))
+				.build();
+	}
+
+	public void finishAllActivity(){
+		activityManager.finishAllActivity();
+	}
+}

@@ -1,0 +1,42 @@
+<idea-plugin>
+  <id>com.fjlcx.android.plugin</id>
+  <name>GenCode</name>
+  <version>1.0</version>
+  <vendor email="ling_cx@qq.com" url="http://www.lingcx.cn">Ling_cx</vendor>
+
+  <description><![CDATA[
+      Android studio插件，生成基本目录结构以及基本类.<br>
+    ]]></description>
+
+  <change-notes><![CDATA[
+     1.0.<br>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <group id="GenCodeGroup" text="_GenCodeGroup" popup="true">
+      <!-- Add your actions here -->
+      <add-to-group group-id="CodeMenu" anchor="first"/>
+      <action id="GenCode.GenFrameCodeAction" class="GenFrameCodeAction" text="GenFrameCode"
+              description="The framework and common classes used to generate frames">
+      </action>
+        <action id="GenCode.GenMVPCodeAction" class="GenMVPCodeAction" text="GenMVPCode"
+                description="The framework and common classes used to generate frames">
+        </action>
+    </group>
+  </actions>
+
+</idea-plugin>
